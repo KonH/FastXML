@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastXml", "FastXml\FastXml.csproj", "{B588D03A-2F59-4841-92EE-998288204CFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CBD4FA63-E592-40DD-9EB8-289613E1671B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B588D03A-2F59-4841-92EE-998288204CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B588D03A-2F59-4841-92EE-998288204CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B588D03A-2F59-4841-92EE-998288204CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B588D03A-2F59-4841-92EE-998288204CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBD4FA63-E592-40DD-9EB8-289613E1671B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBD4FA63-E592-40DD-9EB8-289613E1671B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBD4FA63-E592-40DD-9EB8-289613E1671B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBD4FA63-E592-40DD-9EB8-289613E1671B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

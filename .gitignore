@@ -1,0 +1,9 @@
+.idea/.idea.FastXml/.idea
+.idea/.idea.*
+Benchmarks/obj/*
+Benchmarks/bin/*
+FastXml/obj/*
+FastXml/bin/*
+Tests/obj/*
+Tests/bin/*
+*.user
