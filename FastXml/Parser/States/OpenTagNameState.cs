@@ -11,7 +11,10 @@ namespace FastXml.Parser.States {
 		}
 			
 		public override void Parse(string str, int index, char ch, Stack<State> states, XmlDocument doc) {
-			if ( (ch == '!') || (ch == '?') ) {
+			if ( ch == '!' ) {
+				states.Pop();
+				states.Push(new CommentState(index + 1));
+			} else if ( ch == '?' ) {
 				states.Pop();
 				states.Push(new SkipToEndTagState());
 			} else if ( ch == '/' ) {

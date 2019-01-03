@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 namespace FastXml.Parser.States {
-	abstract class State {
+	public abstract class State {
 		public abstract void Parse(string str, int index, char ch, Stack<State> states, XmlDocument doc);
 
 		protected void CreateNodeFromStates(string closingName, Stack<State> states, XmlDocument doc) {

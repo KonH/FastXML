@@ -6,7 +6,8 @@ namespace Tests {
 		
 		[TestCase(Cases.SingleNode1),    TestCase(Cases.SingleNode2)]
 		[TestCase(Cases.OpenCloseNode1), TestCase(Cases.OpenCloseNode2)]
-		[TestCase(Cases.NodeWithHeader), TestCase(Cases.NodeWithComment)]
+		[TestCase(Cases.NodeWithHeader)]
+		[TestCase(Cases.NodeWithComment1), TestCase(Cases.NodeWithComment2)]
 		public void ParseEmptyNode_XmlDocument(string text) {
 			var doc = new XmlDocument();
 			doc.LoadXml(text);
