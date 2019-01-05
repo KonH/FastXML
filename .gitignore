@@ -7,3 +7,4 @@ FastXml/bin/*
 Tests/obj/*
 Tests/bin/*
 *.user
+Benchmarks/BenchmarkDotNet.Artifacts
