@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+
+namespace FastXml.Parser.States {
+	class OpeningTag : State {			
+		int _startIndex;
+			
+		public XmlNode Node { get; private set; }
+			
+		public OpeningTag(int startIndex) {
+			_startIndex = startIndex;
+		}
+			
+		public override void Parse(string str, int index, char ch, Stack<State> states, XmlDocument doc) {
+			if ( ch == '/' ) {
+				CreateNode(str, index, states, doc);
+				states.Push(new EmbeddedClosingTag());
+			} else if ( ch == '>') {
+				CreateNode(str, index, states, doc);
+				states.Push(new InsideTag());
+			} else if ( char.IsWhiteSpace(ch) ) {
+				CreateNode(str, index, states, doc);
+				states.Push(new TagBody());
+			} else if ( !char.IsLetterOrDigit(ch) ) {
+				throw new XmlFormatException(string.Format("Unexpected character in tag: '{0}'", ch));
+			}
+		}
+
+		List<XmlNode> GetLastContainer(Stack<State> states, XmlDocument doc) {
+			foreach ( var state in states ) {
+				var openingTag = state as OpeningTag;
+				if ( (openingTag != null) && (openingTag != this) ) {
+					return openingTag.Node.Nodes;
+				}
+			}
+			return doc.Nodes;
+		}
+		
+		void CreateNode(string str, int index, Stack<State> states, XmlDocument doc) {
+			var name = str.Substring(_startIndex, index - _startIndex);
+			Node = new XmlNode(name);
+			var container = GetLastContainer(states, doc);
+			container.Add(Node);
+		}
+	}
+}

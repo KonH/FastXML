@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
 namespace FastXml.Parser.States {
-	class CommentState : State {
+	class Comment : State {
 		int _startIndex = 0;
 		int _dashes = 0;
 
-		public CommentState(int startIndex) {
+		public Comment(int startIndex) {
 			_startIndex = startIndex;
 		}
 		

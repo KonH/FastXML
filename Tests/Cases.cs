@@ -7,5 +7,8 @@ namespace Tests {
 		public const string NodeWithHeader   = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<root/>";
 		public const string NodeWithComment1 = "<!-- comment -->\n<root/>";
 		public const string NodeWithComment2 = "<!-- comment - <commented_tag /> -->\n<root/>";
+		public const string NodeWithChilds1  = "<root><child/></root>";
+		public const string NodeWithChilds2  = "<root><child/><child/></root>";
+		public const string NodeWithChilds3  = "<root><child><subChild/></child></root>";
 	}
 }

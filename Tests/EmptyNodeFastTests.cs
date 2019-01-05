@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using FastXml;
 using NUnit.Framework;
 
@@ -11,7 +12,6 @@ namespace Tests {
 		public void ParseEmptyNode_FastXml(string text) {
 			var doc = new XmlReader().FromText(text);
 			Assert.AreEqual(1, doc.Nodes.Count);
-			System.Console.WriteLine("'{0}'", doc.Nodes[0].Name);
 			Assert.True(doc.Nodes[0].Name == "root");
 		}
 		
