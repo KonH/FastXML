@@ -12,8 +12,8 @@ namespace FastXml.Parser.States {
 			if ( ch == '>' ) {
 				var closingName = str.Substring(_startIndex, index - _startIndex);
 				UnrollToOpeningTag(closingName, states);
-			} else if ( !char.IsLetterOrDigit(ch) ) {
-				throw new XmlFormatException(string.Format("Unexpected character in closing tag: '{0}'", ch));
+			} else if ( !IsValidNamePart(ch, _startIndex, index) ) {
+				throw new XmlFormatException(string.Format("Unexpected character in closing tag name: '{0}'", ch));
 			}
 		}
 	}

@@ -20,8 +20,8 @@ namespace FastXml.Parser.States {
 			} else if ( char.IsWhiteSpace(ch) ) {
 				CreateNode(str, index, states, doc);
 				states.Push(new TagBody());
-			} else if ( !char.IsLetterOrDigit(ch) ) {
-				throw new XmlFormatException(string.Format("Unexpected character in tag: '{0}'", ch));
+			} else if ( !IsValidNamePart(ch, _startIndex, index) ) {
+				throw new XmlFormatException(string.Format("Unexpected character in tag name: '{0}'", ch));
 			}
 		}
 		

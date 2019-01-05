@@ -4,6 +4,13 @@ namespace FastXml.Parser.States {
 	public abstract class State {
 		public abstract void Parse(string str, int index, char ch, Stack<State> states, XmlDocument doc);
 
+		protected bool IsValidNamePart(char ch, int startIndex, int index) {
+			if ( startIndex == index ) {
+				return char.IsLetter(ch);
+			}
+			return char.IsLetterOrDigit(ch) || (ch == '_') || (ch == ':');
+		}
+		
 		protected void UnrollToOpeningTag(string matchingClosingName, Stack<State> states) {
 			while ( true ) {
 				if ( states.Count == 0 ) {

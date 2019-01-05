@@ -17,8 +17,8 @@ namespace FastXml.Parser.States {
 			} else if ( ch == '=' ) {
 				SetName(str, index);
 				states.Push(new AttributeStartingQuote());
-			}  else if ( !char.IsLetter(ch) ) {
-				throw new XmlFormatException(string.Format("Unexpected non-letter character in attribute name: '{0}'", ch));
+			}  else if ( !IsValidNamePart(ch, _startIndex, index) ) {
+				throw new XmlFormatException(string.Format("Unexpected character in attribute name: '{0}'", ch));
 			}
 		}
 

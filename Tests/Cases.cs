@@ -12,5 +12,6 @@ namespace Tests {
 		public const string NodeWithChilds3  = "<root><child><subChild/></child></root>";
 		public const string NodeWithAttr1    = "<root attribute=\"value\"/>";
 		public const string NodeWithAttr2    = "<root attribute=\"\"/>";
+		public const string ComplexNode      = "<root><child0 attr1=\"value1\"><subChild1 attr2=\"value2\" attr3=\"value3\" /><subChild2 /></child0></root>";
 	}
 }
