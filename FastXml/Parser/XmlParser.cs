@@ -11,10 +11,12 @@ namespace FastXml.Parser {
 			for ( var i = 0; i < xml.Length; i++ ) {
 				var state = states.Peek();
 				state.Parse(xml, i, xml[i], states, doc);
-				System.Console.WriteLine(
-					"'{0}' => {1}", 
-					xml[i], string.Join("; ", states.Select(s => s.GetType().Name).Reverse())
-				);
+				#if DEBUG
+					System.Console.WriteLine(
+						"'{0}' => {1}", 
+						xml[i], string.Join("; ", states.Select(s => s.GetType().Name).Reverse())
+					);
+				#endif
 			}
 			if ( states.Peek().GetType() == typeof(Document) ) {
 				return doc;
