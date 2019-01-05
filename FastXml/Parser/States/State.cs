@@ -23,5 +23,15 @@ namespace FastXml.Parser.States {
 				}
 			}
 		}
+		
+		protected XmlNode GetLastNode(Stack<State> states) {
+			foreach ( var state in states ) {
+				var openingTag = state as OpeningTag;
+				if ( (openingTag != null) && (openingTag != this) ) {
+					return openingTag.Node;
+				}
+			}
+			return null;
+		}
 	}
 }

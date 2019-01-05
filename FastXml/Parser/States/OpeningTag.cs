@@ -24,15 +24,10 @@ namespace FastXml.Parser.States {
 				throw new XmlFormatException(string.Format("Unexpected character in tag: '{0}'", ch));
 			}
 		}
-
+		
 		List<XmlNode> GetLastContainer(Stack<State> states, XmlDocument doc) {
-			foreach ( var state in states ) {
-				var openingTag = state as OpeningTag;
-				if ( (openingTag != null) && (openingTag != this) ) {
-					return openingTag.Node.Nodes;
-				}
-			}
-			return doc.Nodes;
+			var lastNode = GetLastNode(states);
+			return (lastNode != null) ? lastNode.Nodes : doc.Nodes;
 		}
 		
 		void CreateNode(string str, int index, Stack<State> states, XmlDocument doc) {

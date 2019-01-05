@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 
 namespace FastXml.Parser.States {
-	class TagBody : State {
+	class AttributeEquals : State {
 		public override void Parse(string str, int index, char ch, Stack<State> states, XmlDocument doc) {
-			if ( ch == '>' ) {
-				states.Push(new InsideTag());
-			} else if ( ch == '/' ) {
+			if ( ch == '=' ) {
 				states.Pop();
-				states.Push(new EmbeddedClosingTag());
+				states.Push(new AttributeStartingQuote());
 			} else if ( !char.IsWhiteSpace(ch) ) {
-				states.Push(new AttributeName(index));
+				throw new XmlFormatException(
+					string.Format("Unexpected non-whitespace character in attribute declaration: '{0}'", ch)
+				);
 			}
 		}
 	}
