@@ -7,14 +7,14 @@ namespace Tests {
 		
 		[TestCase(Cases.NodeWithAttr1)]
 		public void ParseNodeWithAttr1_FastXml(string text) {
-			var doc = new XmlReader().FromText(text);
+			var doc = XmlReader.FromText(text);
 			Assert.AreEqual(1, doc.Nodes[0].Attributes.Count);
 			Assert.AreEqual("value", doc.Nodes[0].Attributes["attribute"]);
 		}
 		
 		[TestCase(Cases.NodeWithAttr2)]
 		public void ParseNodeWithAttr2_FastXml(string text) {
-			var doc = new XmlReader().FromText(text);
+			var doc = XmlReader.FromText(text);
 			Assert.AreEqual(1, doc.Nodes[0].Attributes.Count);
 			Assert.AreEqual("", doc.Nodes[0].Attributes["attribute"]);
 		}

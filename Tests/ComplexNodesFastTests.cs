@@ -7,7 +7,7 @@ namespace Tests {
 		
 		[TestCase(Cases.ComplexNode)]
 		public void ParseComplexNode_FastXml(string text) {
-			var doc = new XmlReader().FromText(text);
+			var doc = XmlReader.FromText(text);
 			var root = doc.Nodes[0];
 			Assert.AreEqual("root", root.Name);
 			var child = root.Nodes[0];

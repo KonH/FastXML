@@ -19,7 +19,7 @@ namespace Benchmarks {
 
 		[Benchmark]
 		public FastXmlDocument FastXml() {
-			return new FastXmlReader().FromText(_input);
+			return FastXmlReader.FromText(_input);
 		}
 
 		[Benchmark]

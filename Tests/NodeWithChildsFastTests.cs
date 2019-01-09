@@ -6,14 +6,14 @@ namespace Tests {
 		
 		[TestCase(Cases.NodeWithChilds1)]
 		public void ParseNodeWithChilds1_FastXml(string text) {
-			var doc = new XmlReader().FromText(text);
+			var doc = XmlReader.FromText(text);
 			Assert.AreEqual(1,       doc.Nodes[0].Nodes.Count);
 			Assert.AreEqual("child", doc.Nodes[0].Nodes[0].Name);
 		}
 		
 		[TestCase(Cases.NodeWithChilds2)]
 		public void ParseNodeWithChilds2_FastXml(string text) {
-			var doc = new XmlReader().FromText(text);
+			var doc = XmlReader.FromText(text);
 			Assert.AreEqual(2,       doc.Nodes[0].Nodes.Count);
 			Assert.AreEqual("child", doc.Nodes[0].Nodes[0].Name);
 			Assert.AreEqual("child", doc.Nodes[0].Nodes[1].Name);
@@ -21,7 +21,7 @@ namespace Tests {
 		
 		[TestCase(Cases.NodeWithChilds3)]
 		public void ParseNodeWithChilds3_FastXml(string text) {
-			var doc = new XmlReader().FromText(text);
+			var doc = XmlReader.FromText(text);
 			Assert.AreEqual(1,          doc.Nodes[0].Nodes[0].Nodes.Count);
 			Assert.AreEqual("subChild", doc.Nodes[0].Nodes[0].Nodes[0].Name);
 		}

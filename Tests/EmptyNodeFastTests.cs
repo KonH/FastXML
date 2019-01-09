@@ -10,7 +10,7 @@ namespace Tests {
 		[TestCase(Cases.NodeWithHeader)]
 		[TestCase(Cases.NodeWithComment1), TestCase(Cases.NodeWithComment2)]
 		public void ParseEmptyNode_FastXml(string text) {
-			var doc = new XmlReader().FromText(text);
+			var doc = XmlReader.FromText(text);
 			Assert.AreEqual(1, doc.Nodes.Count);
 			Assert.True(doc.Nodes[0].Name == "root");
 		}
