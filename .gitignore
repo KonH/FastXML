@@ -8,3 +8,4 @@ Tests/obj/*
 Tests/bin/*
 *.user
 Benchmarks/BenchmarkDotNet.Artifacts
+.DS_Store

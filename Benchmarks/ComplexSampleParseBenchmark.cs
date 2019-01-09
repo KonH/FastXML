@@ -1,5 +1,5 @@
 using BenchmarkDotNet.Attributes;
-
+using TObject.Shared;
 using SystemXmlDocument = System.Xml.XmlDocument;
 
 using FastXmlReader = FastXml.XmlReader;
@@ -20,6 +20,12 @@ namespace Benchmarks {
 		[Benchmark]
 		public FastXmlDocument FastXml() {
 			return new FastXmlReader().FromText(_input);
+		}
+
+		[Benchmark]
+		public object NanoXml() {
+			var doc = new NanoXMLDocument(_input);
+			return doc;
 		}
 	}
 }
