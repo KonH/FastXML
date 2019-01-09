@@ -10,5 +10,5 @@ Intel Core i9-8950HK CPU 2.90GHz, 1 CPU, 12 logical and 6 physical cores
 ```
 |    Method |     Mean |     Error |    StdDev | Gen 0/1k Op | Gen 1/1k Op | Gen 2/1k Op | Allocated Memory/Op |
 |---------- |---------:|----------:|----------:|------------:|------------:|------------:|--------------------:|
-| SystemXml | 5.810 us | 0.1152 us | 0.1651 us |      0.8240 |           - |           - |              5.1 KB |
-|   FastXml | 1.044 us | 0.0200 us | 0.0260 us |      0.3090 |           - |           - |              1.9 KB |
+| SystemXml | 5.768 us | 0.1122 us | 0.1779 us |      0.8240 |           - |           - |              5.1 KB |
+|   FastXml | 1.082 us | 0.0216 us | 0.0431 us |      0.3090 |           - |           - |              1.9 KB |
