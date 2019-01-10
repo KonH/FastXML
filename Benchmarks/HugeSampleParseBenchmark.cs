@@ -8,11 +8,11 @@ using FastXmlDocument = FastXml.XmlDocument;
 namespace Benchmarks {
 	[MemoryDiagnoser]
 	public class HugeSampleParseBenchmark {
-		[Params(1, 4)]
+		[Params(5, 10)]
 		public int Depth;
-		[Params(1)]
+		[Params(1, 3)]
 		public int Childs;
-		[Params(0, 1)]
+		[Params(0, 5)]
 		public int Attributes;
 
 		string _inputXml;

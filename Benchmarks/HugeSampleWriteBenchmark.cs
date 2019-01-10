@@ -11,11 +11,11 @@ using XmlWriter = FastXml.XmlWriter;
 namespace Benchmarks {
 	[MemoryDiagnoser]
 	public class HugeSampleWriteBenchmark {
-		[Params(1, 4)]
+		[Params(5, 10)]
 		public int Depth;
-		[Params(1)]
+		[Params(1, 3)]
 		public int Childs;
-		[Params(0, 1)]
+		[Params(0, 5)]
 		public int Attributes;
 
 		Dictionary<string, string> _attrValues = new Dictionary<string, string>();
