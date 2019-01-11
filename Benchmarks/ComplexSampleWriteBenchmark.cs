@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
-
 using SystemXmlDocument = System.Xml.XmlDocument;
 using SystemXmlElement = System.Xml.XmlElement;
 
@@ -36,15 +35,14 @@ namespace Benchmarks {
 
 		[Benchmark]
 		public string FastXml() {
-			var doc       = new FastXmlDocument();
 			var subChilds = new List<XmlNode> {new XmlNode("subChild1"), new XmlNode("subChild2") };
 			subChilds[0].Attributes["attr2"] = "value2";
 			subChilds[0].Attributes["attr3"] = "value3";
 			var child = new XmlNode("child0", subChilds);
 			child.Attributes["attr1"] = "value1";
 			var root = new XmlNode("root", new List<XmlNode> { child });
-			doc.Nodes.Add(root);
-			return new XmlWriter().ToText(doc);
+			var doc = FastXmlDocument.FromRoot(root);
+			return XmlWriter.ToText(doc);
 		}
 	}
 }

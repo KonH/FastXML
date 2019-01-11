@@ -5,8 +5,10 @@ namespace Benchmarks {
 		static void Main(string[] args) {
 			BenchmarkRunner.Run<ComplexSampleParseBenchmark>();
 			BenchmarkRunner.Run<ComplexSampleWriteBenchmark>();
-			BenchmarkRunner.Run<HugeSampleParseBenchmark>();
-			BenchmarkRunner.Run<HugeSampleWriteBenchmark>();
+			BenchmarkRunner.Run<ManyAttributesParseBenchmark>();
+			BenchmarkRunner.Run<ManyAttributesWriteBenchmark>();
+			BenchmarkRunner.Run<DeepHierarchyParseBenchmark>();
+			BenchmarkRunner.Run<DeepHierarchyWriteBenchmark>();
 		}
 	}
 }
