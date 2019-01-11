@@ -1,10 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastXml", "FastXml\FastXml.csproj", "{B588D03A-2F59-4841-92EE-998288204CFE}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastXml", "FastXml\FastXml.csproj", "{B588D03A-2F59-4841-92EE-998288204CFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CBD4FA63-E592-40DD-9EB8-289613E1671B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{CBD4FA63-E592-40DD-9EB8-289613E1671B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFrameworkTestApp", "NetFrameworkTestApp\NetFrameworkTestApp.csproj", "{C8A500FD-2E18-464A-B32D-B5D753334DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,15 @@ Global
 		{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59CF4BA2-1AA8-403B-A0B8-EEB86EE62849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A500FD-2E18-464A-B32D-B5D753334DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A500FD-2E18-464A-B32D-B5D753334DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A500FD-2E18-464A-B32D-B5D753334DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A500FD-2E18-464A-B32D-B5D753334DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A310104-2FD6-4F33-BDDA-C4FA18A2EA64}
 	EndGlobalSection
 EndGlobal
