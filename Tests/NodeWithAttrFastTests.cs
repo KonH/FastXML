@@ -8,24 +8,23 @@ namespace Tests {
 		[TestCase(Cases.NodeWithAttr1)]
 		public void ParseNodeWithAttr1_FastXml(string text) {
 			var doc = XmlReader.FromText(text);
-			Assert.AreEqual(1, doc.Nodes[0].Attributes.Count);
-			Assert.AreEqual("value", doc.Nodes[0].Attributes["attribute"]);
+			Assert.AreEqual(1, doc.Root.Attributes.Count);
+			Assert.AreEqual("value", doc.Root.Attributes["attribute"]);
 		}
 		
 		[TestCase(Cases.NodeWithAttr2)]
 		public void ParseNodeWithAttr2_FastXml(string text) {
 			var doc = XmlReader.FromText(text);
-			Assert.AreEqual(1, doc.Nodes[0].Attributes.Count);
-			Assert.AreEqual("", doc.Nodes[0].Attributes["attribute"]);
+			Assert.AreEqual(1, doc.Root.Attributes.Count);
+			Assert.AreEqual("", doc.Root.Attributes["attribute"]);
 		}
 		
 		[Test]
 		public void WriteEmptyNode_FastXml() {
-			var doc  = new XmlDocument();
-			var node = new XmlNode("root");
-			node.Attributes["attribute"] = "value";
-			doc.Nodes.Add(node);
-			Assert.AreEqual("<root attribute=\"value\" />", new XmlWriter().ToText(doc));
+			var root = new XmlNode("root");
+			root.Attributes["attribute"] = "value";
+			var doc = XmlDocument.FromRoot(root);
+			Assert.AreEqual("<root attribute=\"value\" />", XmlWriter.ToText(doc));
 		}
 	}
 }

@@ -1,38 +1,38 @@
 using System.Text;
 
 namespace FastXml {
-	public class XmlWriter {
-		StringBuilder _sb = new StringBuilder();
-		
-		public string ToText(XmlDocument xmlDoc) {
-			_sb.Clear();
-			foreach ( var node in xmlDoc.Nodes ) {
-				AppendNode(node);
-			}
-			return _sb.ToString();
-		}
-
-		void AppendNode(XmlNode node) {
-			_sb.Append("<").Append(node.Name);
-			if ( node.Nodes.Count > 0 ) {
-				AddAttributes(node);
-				_sb.Append(">");
-				foreach ( var child in node.Nodes ) {
-					AppendNode(child);
-				}
-				_sb.Append("</").Append(node.Name).Append(">");
+	public static class XmlWriter {
+		public static string ToText(XmlDocument xmlDoc, StringBuilder sb = null) {
+			if ( sb == null ) {
+				sb = new StringBuilder();
 			} else {
-				AddAttributes(node);
-				_sb.Append(" />");
+				sb.Clear();
+			}
+			AppendNode(sb, xmlDoc.Root);
+			return sb.ToString();
+		}
+
+		static void AppendNode(StringBuilder sb, XmlNode node) {
+			sb.Append("<").Append(node.Name);
+			if ( node.Childs.Count > 0 ) {
+				AddAttributes(sb, node);
+				sb.Append(">");
+				foreach ( var child in node.Childs ) {
+					AppendNode(sb, child);
+				}
+				sb.Append("</").Append(node.Name).Append(">");
+			} else {
+				AddAttributes(sb, node);
+				sb.Append(" />");
 			}
 		}
 
-		void AddAttributes(XmlNode node) {
+		static void AddAttributes(StringBuilder sb, XmlNode node) {
 			foreach ( var attr in node.Attributes ) {
-				_sb.Append(" ");
-				_sb.Append(attr.Key);
-				_sb.Append("=");
-				_sb.Append("\"").Append(attr.Value).Append("\"");
+				sb.Append(" ");
+				sb.Append(attr.Key);
+				sb.Append("=");
+				sb.Append("\"").Append(attr.Value).Append("\"");
 			}
 		}
 	}
