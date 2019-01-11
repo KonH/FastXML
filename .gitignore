@@ -9,3 +9,4 @@ Tests/bin/*
 *.user
 Benchmarks/BenchmarkDotNet.Artifacts
 .DS_Store
+.vs/
