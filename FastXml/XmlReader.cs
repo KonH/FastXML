@@ -64,11 +64,10 @@ namespace FastXml {
 					while ( xml[cursor] != '>' ) {
 						cursor++;
 					}
-					var closeTagName = xml.Substring(closeNameStart, cursor - closeNameStart);
 					if ( node == null ) {
 						throw new XmlFormatException("Closing tag without open tag");
 					}
-					if ( node.Name != closeTagName ) {
+					if ( !CompareStringWithSubstring(node.Name, xml, closeNameStart, cursor - closeNameStart) ) {
 						throw new XmlFormatException("Closing tag does not match open tag");
 					}
 					cursor++;
@@ -122,6 +121,19 @@ namespace FastXml {
 				}
 				cursor++;
 			}
+		}
+
+		static bool CompareStringWithSubstring(string str, string strForSubString, int startIndex, int length) {
+			if ( str.Length != length ) {
+			    return false;
+			}
+
+			for ( var i = 0; i < length; i++ ) {
+				if ( str[i] != strForSubString[startIndex + i] ) {
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 }
