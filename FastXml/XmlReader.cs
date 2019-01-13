@@ -16,34 +16,37 @@ namespace FastXml {
 		
 		static XmlNode TryParseNode(string xml, ref int cursor) {
 			cursor++; // <_
+			var charAtCursor = xml[cursor];
 			// Skipping <? and <! nodes
-			if ( (xml[cursor] == '?') || (xml[cursor] == '!') ) {
+			if ( (charAtCursor == '?') || (charAtCursor == '!') ) {
 				while ( xml[cursor] != '>' ) {
 					cursor++;
 				}
 				return null;
 			}
 			// Skipping close tags
-			if ( xml[cursor] == '/' ) {
+			if ( charAtCursor == '/' ) {
 				return null;
 			}
 			XmlNode node = null;
 			var nameStart = cursor;
 			while ( true ) {
-				if ( char.IsWhiteSpace(xml[cursor]) ) {
+				charAtCursor = xml[cursor];
+				if ( char.IsWhiteSpace(charAtCursor) ) {
 					if ( node == null ) {
 						// <node_
 						node = CreateNode(xml.Substring(nameStart, cursor - nameStart));
 					}
 					cursor++;
-					if ( (xml[cursor] != '/') && (xml[cursor] != '<') ) {
+					charAtCursor = xml[cursor];
+					if ( (charAtCursor != '/') && (charAtCursor != '<') ) {
 						string attrName, attrValue;
 						ParseAttribute(xml, ref cursor, out attrName, out attrValue);
 						node.Attributes.Add(attrName, attrValue);
 					}
 					continue;
 				}
-				if ( xml[cursor] == '>' ) {
+				if ( charAtCursor == '>' ) {
 					if ( node == null ) {
 						// <node>_
 						node = CreateNode(xml.Substring(nameStart, cursor - nameStart));
@@ -51,7 +54,7 @@ namespace FastXml {
 					cursor++;
 					continue;
 				}
-				if ( xml[cursor] == '<' ) {
+				if ( charAtCursor == '<' ) {
 					if ( node != null ) {
 						var subNode = TryParseNode(xml, ref cursor);
 						if ( subNode != null ) {
@@ -73,7 +76,7 @@ namespace FastXml {
 					cursor++;
 					return node;
 				}
-				if ( xml[cursor] == '/' ) {
+				if ( charAtCursor == '/' ) {
 					cursor++;
 					if ( xml[cursor] != '>' ) {
 						throw new XmlFormatException("Unexpected token #3");
@@ -94,8 +97,10 @@ namespace FastXml {
 		
 		static void ParseAttribute(string xml, ref int cursor, out string name, out string value) {
 			var nameStart = cursor;
+			char charAtCursor;
 			while ( true ) {
-				if ( char.IsWhiteSpace(xml[cursor]) || (xml[cursor] == '=') ) {
+				charAtCursor = xml[cursor];
+				if ( char.IsWhiteSpace(charAtCursor) || (charAtCursor == '=') ) {
 					name = xml.Substring(nameStart, cursor - nameStart);
 					while ( xml[cursor] != '=' ) {
 						cursor++;
@@ -106,7 +111,8 @@ namespace FastXml {
 			}
 			char valueBrace;
 			while ( true ) {
-				if ( (xml[cursor] == '"') || (xml[cursor] == '\'') ) {
+				charAtCursor = xml[cursor];
+				if ( (charAtCursor == '"') || (charAtCursor == '\'') ) {
 					valueBrace = xml[cursor];
 					cursor++;
 					break;
