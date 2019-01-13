@@ -11,5 +11,5 @@ Frequency=3146050 Hz, Resolution=317.8589 ns, Timer=TSC
 ```
 |    Method |      Mean |     Error |    StdDev | Gen 0/1k Op | Gen 1/1k Op | Gen 2/1k Op | Allocated Memory/Op |
 |---------- |----------:|----------:|----------:|------------:|------------:|------------:|--------------------:|
-| SystemXml | 11.147 us | 0.1894 us | 0.1772 us |      4.9744 |           - |           - |              5.1 KB |
-|   FastXml |  1.977 us | 0.0271 us | 0.0240 us |      1.7357 |           - |           - |             1.78 KB |
+| SystemXml | 11.142 us | 0.2762 us | 0.3070 us |      4.9744 |           - |           - |              5.1 KB |
+|   FastXml |  1.918 us | 0.0376 us | 0.0434 us |      1.7357 |           - |           - |             1.78 KB |
