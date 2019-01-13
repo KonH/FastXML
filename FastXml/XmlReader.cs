@@ -32,7 +32,7 @@ namespace FastXml {
 			var nameStart = cursor;
 			while ( true ) {
 				charAtCursor = xml[cursor];
-				if ( char.IsWhiteSpace(charAtCursor) ) {
+				if ( IsWhiteSpace(charAtCursor) ) {
 					if ( node == null ) {
 						// <node_
 						node = CreateNode(xml.Substring(nameStart, cursor - nameStart));
@@ -99,7 +99,7 @@ namespace FastXml {
 			char charAtCursor;
 			while ( true ) {
 				charAtCursor = xml[cursor];
-				if ( char.IsWhiteSpace(charAtCursor) || (charAtCursor == '=') ) {
+				if ( IsWhiteSpace(charAtCursor) || (charAtCursor == '=') ) {
 					name = xml.Substring(nameStart, cursor - nameStart);
 					while ( xml[cursor] != '=' ) {
 						cursor++;
@@ -140,6 +140,10 @@ namespace FastXml {
 				}
 			}
 			return true;
+		}
+
+		static bool IsWhiteSpace(char c) {
+			return ( (c == ' ') || (c == '\t') || (c == '\n') || (c == '\r') );
 		}
 	}
 }
