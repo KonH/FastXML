@@ -40,9 +40,7 @@ namespace FastXml {
 					cursor++;
 					charAtCursor = xml[cursor];
 					if ( (charAtCursor != '/') && (charAtCursor != '<') ) {
-						string attrName, attrValue;
-						ParseAttribute(xml, ref cursor, out attrName, out attrValue);
-						node.Attributes.Add(attrName, attrValue);
+						AddAttribute(xml, ref cursor, node);
 					}
 					continue;
 				}
@@ -95,8 +93,9 @@ namespace FastXml {
 			return new XmlNode(name);
 		}
 		
-		static void ParseAttribute(string xml, ref int cursor, out string name, out string value) {
+		static void AddAttribute(string xml, ref int cursor, XmlNode node) {
 			var nameStart = cursor;
+			string name = null;
 			char charAtCursor;
 			while ( true ) {
 				charAtCursor = xml[cursor];
@@ -122,7 +121,8 @@ namespace FastXml {
 			var valueStart = cursor;
 			while ( true ) {
 				if ( xml[cursor] == valueBrace ) {
-					value = xml.Substring(valueStart, cursor - valueStart);
+					var value = xml.Substring(valueStart, cursor - valueStart);
+					node.Attributes.Add(name, value);
 					return;
 				}
 				cursor++;
